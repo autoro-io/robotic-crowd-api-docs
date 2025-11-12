@@ -645,7 +645,7 @@ Session Queue のオブジェクトの返却は、
 
 # Workflow
 Workflow とは、自動化設定そのものです。外部からワークフローを指定してSession Queue に登録する際に Workflow の ID が必要になりますが、一覧取得のエンドポイントによりIDを確認し指定することができるようになります。
-## ワークフロー一覧を取得する。
+## ワークフロー一覧を取得する
 このエンドポイントは、API Key が作成されたプロジェクトの Workflow の一覧を取得します。パラメーターとして、ページ数、ページあたりの件数を設定できます。パラメーターの指定がない時は、ページあたりの件数は、300件、ページは1ページ目になります。ページあたりの件数は最大で、1000まで指定できます。
 
 > GET /v1/workflows
@@ -714,6 +714,68 @@ JSON オブジェクトを返却します。
 Workflow Schema の JSON オブジェクトの配列が格納されています。
 #### total_count
 トータル件数が格納されています。
+
+## ワークフロー詳細を取得する
+このエンドポイントは、指定された ID の Workflow の詳細情報を取得します。
+API Key が作成されたプロジェクト内の Workflow のみ参照できます。
+
+> GET /v1/workflows/{workflow_id}
+
+```shell
+curl --location --request GET "https://api.roboticcrowd.com/v1/workflows/{workflow_id}" \
+  --header "Authorization: Bearer [your_jwt]"
+```
+
+> Response
+
+```json
+{
+  "workflow": {
+    "id": 123123122,
+    "name": "workflow name1",
+    "description": "this is tutorail user's workflow",
+    "vpn_option_id": null,
+    "debug_mode": true,
+    "robot_type": "singleruntime",
+    "single_process_mode": true,
+    "error_handler_workflow_id": null,
+    "color": "#000000",
+    "receiver_infos": "",
+    "workflow_robots": [],
+    "params": [
+      {
+          "name": "param_1",
+          "paramName": "param_1",
+          "description": "",
+          "type": "Text",
+          "value": "",
+          "id": "0b6c4eb1-a79c-4811-8e93-9a766e4c480c"
+      },
+      {
+          "name": "param_2",
+          "paramName": "param_2",
+          "description": "",
+          "type": "Text",
+          "value": "",
+          "id": "d8dac209-2cea-4607-907d-f07244494044"
+      }
+    ],
+  }
+}
+```
+
+### HTTP Request
+
+`GET https://api.roboticcrowd.com/v1/workflows/{workflow_id}`
+
+### workflow_id（ワークフローID）の確認方法
+プロジェクトのワークフロー詳細画面 の URL により確認できます。
+
+### 応答
+JSON オブジェクトを返却します。
+#### workflow
+Workflow Schema の JSON オブジェクトが格納されています。
+
 # Quota
 
 APIリクエストの制限は、各組織で契約しているロボット数に応じて決定されています。ロボット一台の契約につき、 1分ごとに60リクエストを上限としています。
