@@ -30,7 +30,7 @@ meta:
 
 ここで紹介する API のエンドポイントのドメインは、次のものです。
 
-`https://api.roboticcrowd.com/`
+`https://api.autoro.io/`
 
 全てのエンドポイントはこのドメイン以下に設定されています。
 
@@ -40,7 +40,7 @@ meta:
 > cURL での認証情報の送信
 
 ```shell
-curl --location --request GET "https://api.roboticcrowd.com/v1/path/to/endpoint" \
+curl --location --request GET "https://api.autoro.io/v1/path/to/endpoint" \
   --header "Authorization: Bearer [your_jwt_token]" 
 ```
 
@@ -49,12 +49,12 @@ curl --location --request GET "https://api.roboticcrowd.com/v1/path/to/endpoint"
 > 例えば具体的には、次のようになります。
 
 ```shell
-curl --location --request POST "https://api.roboticcrowd.com/v1/session_queues" \
-  --header "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJodHRwczovL2FwaS5yb2JvdGljY3Jvd2QuY29tLyIsImlzcyI6ImNvbnNvbGUucm9ib3RpY2Nyb3dkLmNvbSIsInN1YiI6Iklqb2lJaXdpWjNKaGJuUnpJanA3SW0iLCJuYmYiOjE0NTA0NzExNDcsImV4cCI6MTQ1MDQ3Mzc0Nywic2NvcGVzIjpbInNlc3Npb25fcXVldWUud3JpdGUiLCJzZXNzaW9uX3F1ZXVlLnJlYWQiLCJ0b2tlbiJdfQ.fpJ-Ho1IvdRdDdBD-ncp7Xkbijj6UmcboUODi_XtMJk" \
+curl --location --request POST "https://api.autoro.io/v1/session_queues" \
+  --header "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiAiY29uc29sZS5hdXRvcm8uaW8iLCJzdWIiOiAiSWpvaUlpd2laM0poYm5SeklqcDdJbSIsImF1ZCI6ICJodHRwczovL2FwaS5hdXRvcm8uaW8vIiwibmJmIjogMTQ1MDQ3MTE0NywiZXhwIjogMTQ1MDQ3Mzc0Nywic2NvcGVzIjogInNlc3Npb25fcXVldWUud3JpdGUgc2Vzc2lvbl9xdWV1ZS5yZWFkIGFjY2Vzc190b2tlbi5jcmVhdGUifQ.wwsLIqQjs2LF6WxSrPuTuUms4-sk33AC1-qwz9GjdeY" \
   --header "content-type: application/json" \
   --data "{
   \"workflow_id\": 6391
-}" 
+}"
 ```
 
 > *`path/to/endpoint` と `[your_jwt_token]` は、正しいエンドポイントに置き換えてください。
@@ -76,7 +76,7 @@ Authorization: Bearer [your_jwt_token]
 具体的には、次のような形式になります。
 
 `
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJodHRwczovL2FwaS5yb2JvdGljY3Jvd2QuY29tLyIsImlzcyI6ImNvbnNvbGUucm9ib3RpY2Nyb3dkLmNvbSIsInN1YiI6Iklqb2lJaXdpWjNKaGJuUnpJanA3SW0iLCJuYmYiOjE0NTA0NzExNDcsImV4cCI6MTQ1MDQ3Mzc0Nywic2NvcGVzIjpbInNlc3Npb25fcXVldWUud3JpdGUiLCJzZXNzaW9uX3F1ZXVlLnJlYWQiLCJ0b2tlbiJdfQ.fpJ-Ho1IvdRdDdBD-ncp7Xkbijj6UmcboUODi_XtMJk
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiAiY29uc29sZS5hdXRvcm8uaW8iLCJzdWIiOiAiSWpvaUlpd2laM0poYm5SeklqcDdJbSIsImF1ZCI6ICJodHRwczovL2FwaS5hdXRvcm8uaW8vIiwibmJmIjogMTQ1MDQ3MTE0NywiZXhwIjogMTQ1MDQ3Mzc0Nywic2NvcGVzIjogInNlc3Npb25fcXVldWUud3JpdGUgc2Vzc2lvbl9xdWV1ZS5yZWFkIGFjY2Vzc190b2tlbi5jcmVhdGUifQ.wwsLIqQjs2LF6WxSrPuTuUms4-sk33AC1-qwz9GjdeY
 `
 
 **JWT の形式**
@@ -84,7 +84,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJodHRwczovL
 > JWT の具体例
 
 ```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOiJodHRwczovL2FwaS5yb2JvdGljY3Jvd2QuY29tLyIsImlzcyI6ImNvbnNvbGUucm9ib3RpY2Nyb3dkLmNvbSIsInN1YiI6Iklqb2lJaXdpWjNKaGJuUnpJanA3SW0iLCJuYmYiOjE0NTA0NzExNDcsImV4cCI6MTQ1MDQ3Mzc0Nywic2NvcGVzIjpbInNlc3Npb25fcXVldWUud3JpdGUiLCJzZXNzaW9uX3F1ZXVlLnJlYWQiLCJ0b2tlbiJdfQ.fpJ-Ho1IvdRdDdBD-ncp7Xkbijj6UmcboUODi_XtMJk
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiAiY29uc29sZS5hdXRvcm8uaW8iLCJzdWIiOiAiSWpvaUlpd2laM0poYm5SeklqcDdJbSIsImF1ZCI6ICJodHRwczovL2FwaS5hdXRvcm8uaW8vIiwibmJmIjogMTQ1MDQ3MTE0NywiZXhwIjogMTQ1MDQ3Mzc0Nywic2NvcGVzIjogInNlc3Npb25fcXVldWUud3JpdGUgc2Vzc2lvbl9xdWV1ZS5yZWFkIGFjY2Vzc190b2tlbi5jcmVhdGUifQ.wwsLIqQjs2LF6WxSrPuTuUms4-sk33AC1-qwz9GjdeY
 ```
 
 JWT は、base64 エンコードされた、 JSON 形式の header と payload また、その両者を繋げて、ハッシュ化した signature のパートからなり、全部を `.` で繋げた文字列になります。
@@ -123,9 +123,9 @@ JWT は、base64 エンコードされた、 JSON 形式の header と payload �
 
 ```json
 {
-  "iss": "console.roboticcrowd.com",
+  "iss": "console.autoro.io",
   "sub": "IjoiIiwiZ3JhbnRzIjp7Im",
-  "aud": "https://api.roboticcrowd.com/",
+  "aud": "https://api.autoro.io/",
   "nbf": 1450471147,
   "exp": 1450473747,
   "scopes": "session_queue.write session_queue.read access_token.create"
@@ -136,7 +136,7 @@ JWT は、base64 エンコードされた、 JSON 形式の header と payload �
 
 ### iss
 
-`iss` は、トークンの発行者を示すデータです。`console.roboticcrowd.com` を設定してください。
+`iss` は、トークンの発行者を示すデータです。`console.autoro.io` を設定してください。
 
 ### sub
 
@@ -144,7 +144,7 @@ JWT は、base64 エンコードされた、 JSON 形式の header と payload �
 
 ### aud
 
-`aud` は、トークンを受け取るURLです。`https://api.roboticcrowd.com/` である必要があります。
+`aud` は、トークンを受け取るURLです。`https://api.autoro.io/` である必要があります。
 
 ### nbf
 
@@ -209,11 +209,11 @@ echo -n '{"alg":"HS256","typ":"JWT"}' | base64
 > payloadを生成する
 
 ```shell
-echo -n '{"iss": "console.roboticcrowd.com","sub": "IjoiIiwiZ3JhbnRzIjp7Im","aud": "https://api.roboticcrowd.com/","nbf": 1450471147,"exp": 1450473747,"scopes": "session_queue.write session_queue.read access_token.create"}' | \
+echo -n '{"iss": "console.autoro.io","sub": "IjoiIiwiZ3JhbnRzIjp7Im","aud": "https://api.autoro.io/","nbf": 1450471147,"exp": 1450473747,"scopes": "session_queue.write session_queue.read access_token.create"}' | \
 base64 | \
 tr -d '='
 
-# eyJpc3MiOiAiY29uc29sZS5yb2JvdGljY3Jvd2QuY29tIiwic3ViIjogIklqb2lJaXdpWjNKaGJuUnpJanA3SW0iLCJhdWQiOiAiaHR0cHM6Ly9hcGkucm9ib3RpY2Nyb3dkLmNvbS8iLCJuYmYiOiAxNDUwNDcxMTQ3LCJleHAiOiAxNDUwNDczNzQ3LCJzY29wZXMiOiAic2Vzc2lvbl9xdWV1ZS53cml0ZSBzZXNzaW9uX3F1ZXVlLnJlYWQgYWNjZXNzX3Rva2VuLmNyZWF0ZSJ9
+# eyJpc3MiOiAiY29uc29sZS5hdXRvcm8uaW8iLCJzdWIiOiAiSWpvaUlpd2laM0poYm5SeklqcDdJbSIsImF1ZCI6ICJodHRwczovL2FwaS5hdXRvcm8uaW8vIiwibmJmIjogMTQ1MDQ3MTE0NywiZXhwIjogMTQ1MDQ3Mzc0Nywic2NvcGVzIjogInNlc3Npb25fcXVldWUud3JpdGUgc2Vzc2lvbl9xdWV1ZS5yZWFkIGFjY2Vzc190b2tlbi5jcmVhdGUifQ
 ```
 
 > signatureを生成する
@@ -221,17 +221,17 @@ tr -d '='
 ```shell
 # echo -n "header.payload" | openssl dgst -binary -sha256 -hmac "secret_access_key" | base64 | sed "s/+/-/g;s/\//_/g;s/=//g"
 
-echo -n "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiAiY29uc29sZS5yb2JvdGljY3Jvd2QuY29tIiwic3ViIjogIklqb2lJaXdpWjNKaGJuUnpJanA3SW0iLCJhdWQiOiAiaHR0cHM6Ly9hcGkucm9ib3RpY2Nyb3dkLmNvbS8iLCJuYmYiOiAxNDUwNDcxMTQ3LCJleHAiOiAxNDUwNDczNzQ3LCJzY29wZXMiOiAic2Vzc2lvbl9xdWV1ZS53cml0ZSBzZXNzaW9uX3F1ZXVlLnJlYWQgYWNjZXNzX3Rva2VuLmNyZWF0ZSJ9" | \
+echo -n "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiAiY29uc29sZS5hdXRvcm8uaW8iLCJzdWIiOiAiSWpvaUlpd2laM0poYm5SeklqcDdJbSIsImF1ZCI6ICJodHRwczovL2FwaS5hdXRvcm8uaW8vIiwibmJmIjogMTQ1MDQ3MTE0NywiZXhwIjogMTQ1MDQ3Mzc0Nywic2NvcGVzIjogInNlc3Npb25fcXVldWUud3JpdGUgc2Vzc2lvbl9xdWV1ZS5yZWFkIGFjY2Vzc190b2tlbi5jcmVhdGUifQ" | \
 openssl dgst -binary -sha256 -hmac "523463041EF9FFA2950D8450FEB34C88BC8692C40C9CF3C99DCDF75E270229E2" | \
 base64 | sed "s/+/-/g;s/\//_/g;s/=//g"
 
-# 45ervId5_CudT4hya5Tbx30OrO08KCewFQlgxU7mfew
+# wwsLIqQjs2LF6WxSrPuTuUms4-sk33AC1-qwz9GjdeY
 ```
 
 > 生成されたJWT
 
 ```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiAiY29uc29sZS5yb2JvdGljY3Jvd2QuY29tIiwic3ViIjogIklqb2lJaXdpWjNKaGJuUnpJanA3SW0iLCJhdWQiOiAiaHR0cHM6Ly9hcGkucm9ib3RpY2Nyb3dkLmNvbS8iLCJuYmYiOiAxNDUwNDcxMTQ3LCJleHAiOiAxNDUwNDczNzQ3LCJzY29wZXMiOiAic2Vzc2lvbl9xdWV1ZS53cml0ZSBzZXNzaW9uX3F1ZXVlLnJlYWQgYWNjZXNzX3Rva2VuLmNyZWF0ZSJ9.45ervId5_CudT4hya5Tbx30OrO08KCewFQlgxU7mfew
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiAiY29uc29sZS5hdXRvcm8uaW8iLCJzdWIiOiAiSWpvaUlpd2laM0poYm5SeklqcDdJbSIsImF1ZCI6ICJodHRwczovL2FwaS5hdXRvcm8uaW8vIiwibmJmIjogMTQ1MDQ3MTE0NywiZXhwIjogMTQ1MDQ3Mzc0Nywic2NvcGVzIjogInNlc3Npb25fcXVldWUud3JpdGUgc2Vzc2lvbl9xdWV1ZS5yZWFkIGFjY2Vzc190b2tlbi5jcmVhdGUifQ.wwsLIqQjs2LF6WxSrPuTuUms4-sk33AC1-qwz9GjdeY
 ```
 
 JWT を生成するには、URL-safe な base64 文字列に変換する必要があります。command line で base64 エンコードするのは、簡単のようで簡単ではありません。各OSによって微妙に仕様が異なっています。
@@ -250,7 +250,7 @@ JWT を生成するには、URL-safe な base64 文字列に変換する必要�
 最後に、これらの出力を全てドット `.` で接続して JWT の完成です。
 
 `
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiAiY29uc29sZS5yb2JvdGljY3Jvd2QuY29tIiwic3ViIjogIklqb2lJaXdpWjNKaGJuUnpJanA3SW0iLCJhdWQiOiAiaHR0cHM6Ly9hcGkucm9ib3RpY2Nyb3dkLmNvbS8iLCJuYmYiOiAxNDUwNDcxMTQ3LCJleHAiOiAxNDUwNDczNzQ3LCJzY29wZXMiOiAic2Vzc2lvbl9xdWV1ZS53cml0ZSBzZXNzaW9uX3F1ZXVlLnJlYWQgYWNjZXNzX3Rva2VuLmNyZWF0ZSJ9.45ervId5_CudT4hya5Tbx30OrO08KCewFQlgxU7mfew
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiAiY29uc29sZS5hdXRvcm8uaW8iLCJzdWIiOiAiSWpvaUlpd2laM0poYm5SeklqcDdJbSIsImF1ZCI6ICJodHRwczovL2FwaS5hdXRvcm8uaW8vIiwibmJmIjogMTQ1MDQ3MTE0NywiZXhwIjogMTQ1MDQ3Mzc0Nywic2NvcGVzIjogInNlc3Npb25fcXVldWUud3JpdGUgc2Vzc2lvbl9xdWV1ZS5yZWFkIGFjY2Vzc190b2tlbi5jcmVhdGUifQ.wwsLIqQjs2LF6WxSrPuTuUms4-sk33AC1-qwz9GjdeY
 `
 
 出来上がった JWT を [jwt.io](https://jwt.io) で検証してみましょう。Encoded のテキストエリアに JWT をペーストとします。
@@ -275,7 +275,7 @@ JWT は、header と payload が base64 で誰でもデコードできてしま�
 > tokenを取得する
 
 ```shell
-curl --location --request POST "https://api.roboticcrowd.com/v1/token" \
+curl --location --request POST "https://api.autoro.io/v1/token" \
   --header "content-type: application/json" \
   --data "{
   \"access_key_id\": \"your_access_key_id\",
@@ -295,7 +295,7 @@ JWT は、クライアントサイドで生成することを推奨していま�
 ### HTTP Request
 
 `
-  POST https://api.roboticcrowd.com/v1/token
+  POST https://api.autoro.io/v1/token
 `
 
 ### パラメーター
@@ -315,7 +315,7 @@ JWT は、クライアントサイドで生成することを推奨していま�
 
 **初期値**
 
-無し、必須 
+無し、必須
 
 **説明**
 
@@ -352,7 +352,7 @@ params 内のオブジェクトとして設定した key と value は、ワー�
 > POST /v1/session_queues
 
 ```shell
-curl --location --request POST "https://api.roboticcrowd.com/v1/session_queues" \
+curl --location --request POST "https://api.autoro.io/v1/session_queues" \
   --header "Authorization: Bearer [jwt_token]" \
   --header "content-type: application/json" \
   --data "{
@@ -395,7 +395,7 @@ curl --location --request POST "https://api.roboticcrowd.com/v1/session_queues" 
 ### HTTP Request
 
 `
-POST https://api.roboticcrowd.com/v1/session_queues
+POST https://api.autoro.io/v1/session_queues
 `
 
 ### パラメーター
@@ -431,7 +431,7 @@ Session Queue Schema のJSONオブジェクトを返却します。
 > GET /v1/session_queues
 
 ```shell
-curl --location --request GET "https://api.roboticcrowd.com/v1/session_queues?page=1&per_page=3&query=before:2019-10-11%20after:2019-07-01" \
+curl --location --request GET "https://api.autoro.io/v1/session_queues?page=1&per_page=3&query=before:2019-10-11%20after:2019-07-01" \
   --header "Authorization: Bearer [your_jwt]"
 ```
 
@@ -510,7 +510,7 @@ curl --location --request GET "https://api.roboticcrowd.com/v1/session_queues?pa
 ### HTTP Request
 
 `
-  GET https://api.roboticcrowd.com/v1/session_queues?page=1&per_page=10&query=
+  GET https://api.autoro.io/v1/session_queues?page=1&per_page=10&query=
 `
 
 ### クエリパラメーター
@@ -584,7 +584,7 @@ Session Queue Schema のトータル件数が格納されています。
 > DELETE /v1/session_queues/{session_queue_id}/cancel
 
 ```shell
-curl --location --request DELETE "https://api.roboticcrowd.com/v1/session_queues/{session_queue_id}/cancel" \
+curl --location --request DELETE "https://api.autoro.io/v1/session_queues/{session_queue_id}/cancel" \
   --header "Authorization: Bearer [jwt_token]" \
   --header "content-type: application/json"
 ```
@@ -596,7 +596,7 @@ curl --location --request DELETE "https://api.roboticcrowd.com/v1/session_queues
 ### HTTP Request
 
 `
-DELETE https://api.roboticcrowd.com/v1/session_queues/{session_queue_id}/cancel
+DELETE https://api.autoro.io/v1/session_queues/{session_queue_id}/cancel
 `
 
 ### session_queue_id（実行キューID）の確認方法
@@ -651,7 +651,7 @@ Workflow とは、自動化設定そのものです。外部からワークフ�
 > GET /v1/workflows
 
 ```shell
-curl --location --request GET "https://api.roboticcrowd.com/v1/workflows?page=1&per_page=10" \
+curl --location --request GET "https://api.autoro.io/v1/workflows?page=1&per_page=10" \
   --header "Authorization: Bearer [your_jwt]"
 ```
 
@@ -694,7 +694,7 @@ curl --location --request GET "https://api.roboticcrowd.com/v1/workflows?page=1&
 ### HTTP Request
 
 `
-GET https://api.roboticcrowd.com/v1/workflows?page=1&per_page=10
+GET https://api.autoro.io/v1/workflows?page=1&per_page=10
 `
 
 ### クエリパラメーター
