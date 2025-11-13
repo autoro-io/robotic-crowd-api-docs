@@ -366,7 +366,10 @@
             <a href="#workflow-2" class="toc-h1 toc-link" data-title="Workflow">Workflow</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#6158469c28" class="toc-h2 toc-link" data-title="ワークフロー一覧を取得する。">ワークフロー一覧を取得する。</a>
+                    <a href="#6b897b8fb7" class="toc-h2 toc-link" data-title="ワークフロー一覧を取得する">ワークフロー一覧を取得する</a>
+                  </li>
+                  <li>
+                    <a href="#8ad0795712" class="toc-h2 toc-link" data-title="ワークフロー詳細を取得する">ワークフロー詳細を取得する</a>
                   </li>
               </ul>
           </li>
@@ -915,7 +918,7 @@ DELETE https://api.roboticcrowd.com/v1/session_queues/{session_queue_id}/cancel
 <p>ロボットの詳細が記述されている JSON オブジェクトです。返却される項目は、ID とロボット名 (name) だけです。</p>
 <h1 id='workflow-2'>Workflow</h1>
 <p>Workflow とは、自動化設定そのものです。外部からワークフローを指定してSession Queue に登録する際に Workflow の ID が必要になりますが、一覧取得のエンドポイントによりIDを確認し指定することができるようになります。</p>
-<h2 id='6158469c28'>ワークフロー一覧を取得する。</h2>
+<h2 id='6b897b8fb7'>ワークフロー一覧を取得する</h2>
 <p>このエンドポイントは、API Key が作成されたプロジェクトの Workflow の一覧を取得します。パラメーターとして、ページ数、ページあたりの件数を設定できます。パラメーターの指定がない時は、ページあたりの件数は、300件、ページは1ページ目になります。ページあたりの件数は最大で、1000まで指定できます。</p>
 
 <blockquote>
@@ -978,6 +981,60 @@ GET https://api.roboticcrowd.com/v1/workflows?page=1&amp;per_page=10
 <p>Workflow Schema の JSON オブジェクトの配列が格納されています。</p>
 <h4 id='total_count-2'>total_count</h4>
 <p>トータル件数が格納されています。</p>
+<h2 id='8ad0795712'>ワークフロー詳細を取得する</h2>
+<p>このエンドポイントは、指定された ID の Workflow の詳細情報を取得します。
+API Key が作成されたプロジェクト内の Workflow のみ参照できます。</p>
+
+<blockquote>
+<p>GET /v1/workflows/{workflow_id}</p>
+</blockquote>
+<div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">--location</span> <span class="nt">--request</span> GET <span class="s2">"https://api.roboticcrowd.com/v1/workflows/{workflow_id}"</span> <span class="se">\</span>
+  <span class="nt">--header</span> <span class="s2">"Authorization: Bearer [your_jwt]"</span>
+</code></pre></div>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"workflow"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123123122</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"workflow name1"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"this is tutorail user's workflow"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"vpn_option_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"debug_mode"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"robot_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"singleruntime"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"single_process_mode"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"error_handler_workflow_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#000000"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"receiver_infos"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"workflow_robots"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="nl">"params"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"param_1"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"paramName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"param_1"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Text"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0b6c4eb1-a79c-4811-8e93-9a766e4c480c"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"param_2"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"paramName"</span><span class="p">:</span><span class="w"> </span><span class="s2">"param_2"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Text"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"d8dac209-2cea-4607-907d-f07244494044"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div><h3 id='http-request-6'>HTTP Request</h3>
+<p><code>GET https://api.roboticcrowd.com/v1/workflows/{workflow_id}</code></p>
+<h3 id='workflow_id-id'>workflow_id（ワークフローID）の確認方法</h3>
+<p>プロジェクトのワークフロー詳細画面 の URL により確認できます。</p>
+<h3 id='2df46a9925-4'>応答</h3>
+<p>JSON オブジェクトを返却します。</p>
+<h4 id='workflow-3'>workflow</h4>
+<p>Workflow Schema の JSON オブジェクトが格納されています。</p>
 <h1 id='quota'>Quota</h1>
 <p>APIリクエストの制限は、各組織で契約しているロボット数に応じて決定されています。ロボット一台の契約につき、 1分ごとに60リクエストを上限としています。</p>
 <h1 id='errors'>Errors</h1>
